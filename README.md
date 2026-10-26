@@ -6,8 +6,6 @@ An unofficial mod for **Dynasty Warriors 8 Empires** (Steam version). It works a
 
 > **Beta for the English / Chinese versions.** The Japanese version has been tested a lot, but the English and Traditional Chinese versions have only been tested a few times. Please send a report if you find a problem (see [Reporting problems](#reporting-problems)).
 
-overmase-AI-V1.4.exe is a patch file created with 357E Editor. While the original source is unavailable, the source files for the tool and 357E Editor can be found here:
-https://www.downxia.com/downinfo/382042.html
 
 ## Supported versions
 
@@ -31,6 +29,10 @@ With any other `Launch.exe`, the DLL changes nothing. It writes `[停止]` (stop
 4. Start the game as usual.
 
 **To uninstall:** delete `dinput8.dll` (and `version.ini` if you like).
+
+If you download this file, Windows may detect it as a virus, but this is a false positive. Please allow Windows Defender to accept the file. It is open source on GitHub, and mods are created using non-malicious code.
+overmase-AI-V1.4.exe is a patch file created with 357E Editor, and it may also be mistakenly detected as a virus. The source files for the tool and 357E Editor can be found here:
+https://www.downxia.com/downinfo/382042.html
 
 Do not use Cheat Engine scripts that change the same code at the same time. If the DLL finds that a place was already changed by something else, it skips that feature and writes `[中止]` (skipped) to the log.
 

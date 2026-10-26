@@ -20,10 +20,12 @@ With any other `Launch.exe`, the DLL changes nothing. It writes `[停止]` (stop
 
 ## Installation
 
-1. Download `dinput8.dll` and `version.ini`.
-2. Put both files in the game folder (the folder that contains `Launch.exe`).
+1. Download `dinput8.dll` and `version.ini` `overmase-AI-V1.4.exe`.
+2. Put files in the game folder (the folder that contains `Launch.exe`).
    Example: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. Start the game as usual.
+
+3. If you launch `overmase-AI-V1.4.exe`, the window will scroll by, and if it says "Success!" at the end, the installation was successful.   
+4. Start the game as usual.
 
 **To uninstall:** delete `dinput8.dll` (and `version.ini` if you like).
 

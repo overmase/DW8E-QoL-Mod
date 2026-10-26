@@ -20,10 +20,11 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 
 ## 入れ方
 
-1. `dinput8.dll` と `version.ini` をダウンロードします。
-2. 2つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
+1. `dinput8.dll` と `version.ini` `overmase-AI-V1.4.exe` をダウンロードします。
+2. 3つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. いつもどおりゲームを起動します。
+3  `overmase-AI-V1.4.exe`起動しウィンドウが流れて最後にSuccess!とでていればインストール成功
+4. いつもどおりゲームを起動します。
 
 **外し方:** `dinput8.dll` を消してください(`version.ini` も消して構いません)。
 

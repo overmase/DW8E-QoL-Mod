@@ -29,6 +29,10 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 
 **解除安裝:** 刪除 `dinput8.dll` 即可(也可以一併刪除 `version.ini`)。
 
+如果您下载此文件，Windows 可能会将其检测为病毒，但这是误报。请允许 Windows Defender 接受该文件。它是 GitHub 上的开源项目，
+所有修改均使用非恶意代码创建。overmase-AI-V1.4.exe(tau_battle_ai_empires_meiling.exe) 是使用 357E Editor 创建的补丁文件，
+也可能被误报为病毒。该工具和 357E Editor 的源文件可在此处找到：https://www.downxia.com/downinfo/382042.html
+
 請不要同時使用會修改相同位置的 Cheat Engine 腳本。如果 DLL 發現某個位置已經被其他程式修改,就不會啟用該功能,並在記錄中寫入 `[中止]`。
 
 ## 功能

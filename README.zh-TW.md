@@ -20,10 +20,12 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 
 ## 安裝方法
 
-1. 下載 `dinput8.dll` 和 `version.ini`。
+1. 下載 `dinput8.dll` 和 `version.ini` `tau_battle_ai_empires_meiling.exe` or `tau_battle_ai_empires_meiling_no_cut.exe` 。
+中文版游戏与`overmase-AI-V1.4.exe`不兼容。您可以尝试安装TAU制作的替代mod https://drive.google.com/file/d/1Ci6f2cEV3uhXRVC5SeqpmYJ76btcUp09/view?usp=sharing（即使不安装也能正常游戏）。
 2. 將兩個檔案放到遊戲資料夾(`Launch.exe` 所在的資料夾)。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. 照常啟動遊戲。
+3. 运行 `tau_battle_ai_empires_meiling.exe` 或 `tau_battle_ai_empires_meiling_no_cut.exe`。如果弹出窗口并显示“成功！”，则表示运行成功。
+4. 照常啟動遊戲。
 
 **解除安裝:** 刪除 `dinput8.dll` 即可(也可以一併刪除 `version.ini`)。
 

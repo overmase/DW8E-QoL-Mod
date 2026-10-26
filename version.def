@@ -1,0 +1,24 @@
+LIBRARY version.dll
+EXPORTS
+  GetFileVersionInfoA=proxy_GetFileVersionInfoA
+  GetFileVersionInfoByHandle=proxy_GetFileVersionInfoByHandle
+  GetFileVersionInfoExA=proxy_GetFileVersionInfoExA
+  GetFileVersionInfoExW=proxy_GetFileVersionInfoExW
+  GetFileVersionInfoSizeA=proxy_GetFileVersionInfoSizeA
+  GetFileVersionInfoSizeExA=proxy_GetFileVersionInfoSizeExA
+  GetFileVersionInfoSizeExW=proxy_GetFileVersionInfoSizeExW
+  GetFileVersionInfoSizeW=proxy_GetFileVersionInfoSizeW
+  GetFileVersionInfoW=proxy_GetFileVersionInfoW
+  VerFindFileA=proxy_VerFindFileA
+  VerFindFileW=proxy_VerFindFileW
+  VerInstallFileA=proxy_VerInstallFileA
+  VerInstallFileW=proxy_VerInstallFileW
+  VerLanguageNameA=proxy_VerLanguageNameA
+  VerLanguageNameW=proxy_VerLanguageNameW
+  VerQueryValueA=proxy_VerQueryValueA
+  VerQueryValueW=proxy_VerQueryValueW
+  DirectInput8Create=proxy_DirectInput8Create
+  DllCanUnloadNow=proxy_DllCanUnloadNow PRIVATE
+  DllGetClassObject=proxy_DllGetClassObject PRIVATE
+  DllRegisterServer=proxy_DllRegisterServer PRIVATE
+  DllUnregisterServer=proxy_DllUnregisterServer PRIVATE

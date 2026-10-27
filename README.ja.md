@@ -20,11 +20,11 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 
 ## 入れ方
 
-1. `dinput8.dll` と `version.ini` `overmase-AI-V1.4.exe` をダウンロードします。
+1. `dinput8.dll` と `version.ini` `overmase-AI-V~~.exe` をダウンロードします。
 2. 3つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
    
-3  `overmase-AI-V1.4.exe`起動しウィンドウが流れて最後にSuccess!とでていればインストール成功
+3  `overmase-AI-V~~.exe`起動しウィンドウが流れて最後にSuccess!とでていればインストール成功
 4. いつもどおりゲームを起動します。
 
 このファイルをダウンロードすると、Windowsがウイルスとして検出する場合がありますが、これは誤検出です。Windows Defenderのファイルを許可してくださいgithubにてオープンソースにしてあり,悪意のないコードを使ってmodを作っています

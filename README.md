@@ -24,7 +24,7 @@ With any other `Launch.exe`, the DLL changes nothing. It writes `[停止]` (stop
 1. Download `dinput8.dll` and `version.ini` `overmase-AI-V~~.exe`.
 2. Put files in the game folder (the folder that contains `Launch.exe`).
    Example: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-
+(Please check the latest version. Using overmase-AI-V~~ or overmase-AI-V~~anim_cut_musou will disable the initial close-up animation when Musou is activated.)
 3. If you launch `overmase-AI-V~~.exe`, the window will scroll by, and if it says "Success!" at the end, the installation was successful.   
 4. Start the game as usual.
 

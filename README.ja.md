@@ -23,7 +23,7 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 1. `dinput8.dll` と `version.ini` `overmase-AI-V~~.exe` をダウンロードします。
 2. 3つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-   
+   (最新のバージョンを確認してください,overmase-AI-V~anim_cut_musouは無双発動時、最初のアップアニメーションが無効になります)
 3  `overmase-AI-V~~.exe`起動しウィンドウが流れて最後にSuccess!とでていればインストール成功
 4. いつもどおりゲームを起動します。
 

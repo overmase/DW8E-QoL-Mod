@@ -24,7 +24,8 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 
 ## 入れ方
 `overmase-AI-V~.exe` `overmase-AI-V~anim_cut_musou`の違いは無双発動時にスクリーンアップせずに即無双攻撃します
-注意: `overmase-AI-V~anim_cut_musou`は龐徳のムーブセットの無双技「砂暴大征陣」が機能しません馬に乗らず地面に埋まって武器を振ります
+
+注意:`overmase-AI-V~anim_cut_musou`は龐徳のムーブセットの無双技「砂暴大征陣」が機能しません馬に乗らず地面に埋まって武器を振ります
 
 1. `dinput8.dll` と `version.ini`と　`overmase-AI-V~.exe` `overmase-AI-V~anim_cut_musou`どちらか好みの方をダウンロードします。
 2. 3つともゲームのフォルダ(`Launch.exe` がある所)に置きます。

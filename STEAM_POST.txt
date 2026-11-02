@@ -1,0 +1,114 @@
+[h1]Dynasty Warriors 8 Empires Mod (dinput8.dll) — Update[/h1]
+
+[b]English[/b] | [b]繁體中文[/b] | [b]日本語[/b] (scroll down)
+
+[hr][/hr]
+
+[h2]English[/h2]
+
+An unofficial mod for Dynasty Warriors 8 Empires (Steam). Just put [b]dinput8.dll[/b] and [b]version.ini[/b] in the game folder (where Launch.exe is). Works with the Japanese, English and Traditional Chinese versions.
+
+[b]Download / details:[/b] (GitHub link)
+
+[h3]New in this update[/h3]
+[list]
+[*][b]Auto battle [AutoBattle][/b] — F8 = on / F10 = off. The officer AI controls your character: marches, captures bases, defends your main camp, attacks, guards and uses Musou. You can take less damage while it is on. ("AutoBattle" is shown above the HP list.)
+[*][b]Main camp defense [MainCamp][/b] — when enemy officers come near a main camp, that army's officers go back to defend it (allies / enemies separately).
+[*][b]Off-screen march speed [OffscreenMarch][/b] — speed of off-screen officers, with extra speed when returning to defend.
+[*][b]Base capture speed [BaseCapture][/b] — how fast AI officers take bases off-screen.
+[*][b]AI targeting [AITarget][/b] — officers fight nearby enemy officers, skip unreachable targets, and enemies stop focusing only on the player.
+[*][b]AI level and aerial actions [AI][/b] — air recovery chance, and chances of an aerial Musou / charge / attack / jump after a recovery or while being juggled.
+[*][b]Enemy captain / soldier damage [EnemyPower][/b] — damage multiplier (officers are not affected).
+[*][b]Stats [Status][/b] — stat cap up to 30000, gauges above 1000 on the info screen, stat rank (range allowed).
+[*][b]Affinity [Affinity][/b] — enemies can flinch even when you are at a disadvantage.
+[*][b]Allied HP [AllyHP][/b] — shows your main camp durability ("Base 321").
+[/list]
+
+[h3]Fixes[/h3]
+[list]
+[*]Guard against a crash caused by broken officer motion data.
+[*]Commanders no longer stand idle after their army loses its main camp in invasion battles.
+[*]GaugeMax now also applies to the third officer info screen.
+[/list]
+
+[h3]Notes[/h3]
+[list]
+[*]Most new features are [b]off[/b] in the included version.ini. Turn on only what you want.
+[*]The new features were tested on the Japanese version. They are ported to the English / Chinese versions automatically but not tested in-game there yet — please report problems with mod_log.txt / mod_status.txt / version.ini.
+[*]The attack frequency of enemy captains / soldiers cannot be changed yet (damage only).
+[*]Unofficial fan mod, not affiliated with KOEI TECMO GAMES. Use at your own risk and back up your saves.
+[/list]
+
+[hr][/hr]
+
+[h2]繁體中文[/h2]
+
+真・三國無雙7 Empires(Steam 版)的非官方 Mod。只要把 [b]dinput8.dll[/b] 和 [b]version.ini[/b] 放到遊戲資料夾(Launch.exe 所在的位置)即可。支援日文版、英文版與繁體中文版。
+
+[b]下載・詳細說明:[/b](GitHub 連結)
+
+[h3]本次更新的新功能[/h3]
+[list]
+[*][b]自動戰鬥 [AutoBattle][/b] — F8 開啟 / F10 關閉。由武將的 AI 操作玩家角色:進軍、壓制據點、防守本陣、攻擊、防禦與使用無雙。開啟期間可以減少受到的傷害(HP 顯示上方會顯示「AutoBattle」)。
+[*][b]本陣防衛 [MainCamp][/b] — 敵方武將靠近本陣時,讓該軍的武將回去防守(我方 / 敵方可分別設定)。
+[*][b]畫面外的進軍速度 [OffscreenMarch][/b] — 畫面外武將的進軍速度,回防時可再加快。
+[*][b]攻擊據點的速度 [BaseCapture][/b] — AI 武將在畫面外攻下據點的速度。
+[*][b]AI 的目標 [AITarget][/b] — 武將會攻擊附近的敵方武將、排除到不了的目標,敵人也不再只鎖定玩家。
+[*][b]AI 強度・空中行動 [AI][/b] — 空中受身的機率,以及受身後或持續被打在空中時使出空中無雙・蓄力攻擊・普通攻擊・跳躍的機率。
+[*][b]敵方兵長・士兵的攻擊力 [EnemyPower][/b] — 傷害倍率(不影響武將)。
+[*][b]能力 [Status][/b] — 能力上限最高 30000、資訊畫面可顯示超過 1000 的量表、能力強化階段(可指定範圍)。
+[*][b]武器相性 [Affinity][/b] — 即使自己相性不利,也能讓敵人硬直。
+[*][b]我方 HP 顯示 [AllyHP][/b] — 顯示自己本陣的耐久力(「本阵 321」)。
+[/list]
+
+[h3]修正[/h3]
+[list]
+[*]新增防護,避免武將動作資料損壞時當機。
+[*]修正侵攻戰中失去本陣的一方總大將等不行動的問題。
+[*]GaugeMax 現在也會套用到第三個武將資訊畫面。
+[/list]
+
+[h3]注意事項[/h3]
+[list]
+[*]隨附的 version.ini 中新功能大多為[b]關閉[/b],只要開啟想用的項目即可。
+[*]新功能是在日文版上確認的。英文版與中文版已自動對應,但尚未實機測試。如有問題,請附上 mod_log.txt / mod_status.txt / version.ini 回報。
+[*]目前還無法調整敵方兵長・士兵的攻擊頻率(只能調整傷害)。
+[*]本 Mod 為非官方玩家自製 Mod,與 KOEI TECMO GAMES 無關。請自行承擔風險,並先備份存檔。
+[/list]
+
+[hr][/hr]
+
+[h2]日本語[/h2]
+
+真・三國無双7 Empires(Steam 版)の非公式 mod です。[b]dinput8.dll[/b] と [b]version.ini[/b] をゲームのフォルダ(Launch.exe がある所)に置くだけで動きます。日本語版・英語版・繁体字中国語版に対応しています。
+
+[b]ダウンロード・詳しい説明:[/b](GitHub のリンク)
+
+[h3]今回の新しい機能[/h3]
+[list]
+[*][b]オートバトル [AutoBattle][/b] — F8 で入れる / F10 で切る。武将の AI がプレイヤーを操作します。進軍・拠点の制圧・本陣の防衛・攻撃・ガード・無双を行います。オートの間は受けるダメージを減らせます(HP の表示の上に「AutoBattle」と出ます)。
+[*][b]本陣の防衛 [MainCamp][/b] — 本陣の近くに敵の武将が来たら、その軍の武将が守りに戻ります(味方・敵別々)。
+[*][b]画面外の進軍の速さ [OffscreenMarch][/b] — 画面の外の武将の進軍の速さ。本陣を守りに戻る時はさらに速くできます。
+[*][b]拠点を攻める速さ [BaseCapture][/b] — 画面の外で AI の武将が拠点を落とす速さ。
+[*][b]AI の相手 [AITarget][/b] — 武将が近くの敵の武将と戦う、届かない相手を外す、敵がプレイヤーばかり狙わないようにする。
+[*][b]AI の強さ・空中の行動 [AI][/b] — 受け身を取る確率、受け身の後・飛ばされ続けた時に空中無双・チャージ攻撃・攻撃・ジャンプを出す確率。
+[*][b]敵の兵長・兵の攻撃力 [EnemyPower][/b] — ダメージの倍率(武将は対象外)。
+[*][b]能力 [Status][/b] — 能力の上限を最大 30000 に、1000 を超えたゲージの表示、能力の強化の段階(範囲も可)。
+[*][b]武器の相性 [Affinity][/b] — 相性負けの時でも敵を怯ませられます。
+[*][b]味方の HP の表示 [AllyHP][/b] — 自分の本陣の耐久力を出します(「本陣 321」)。
+[/list]
+
+[h3]修正[/h3]
+[list]
+[*]武将の動きのデータが壊れている時に落ちるのを防ぐ守りを追加。
+[*]侵攻戦で本陣を取られた軍の総大将などが動かなくなるのを修正。
+[*]GaugeMax が 3 つ目の武将情報の画面にも反映されるように。
+[/list]
+
+[h3]注意[/h3]
+[list]
+[*]新しい機能は、同梱の version.ini ではほとんど[b]無効[/b]になっています。使いたい物だけ入れてください。
+[*]新しい機能は日本語版で確かめています。英語版・中国語版には自動で対応させていますが、実機ではまだ試していません。不具合は mod_log.txt / mod_status.txt / version.ini を付けて報告をお願いします。
+[*]敵の兵長・兵の攻撃の頻度はまだ変えられません(ダメージだけ)。
+[*]非公式のファン mod です。コーエーテクモゲームスとは関係ありません。自己責任で、セーブデータのバックアップを取ってからお使いください。
+[/list]

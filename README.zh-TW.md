@@ -2,9 +2,11 @@
 
 [日本語](README.ja.md) | [English](README.md) | **繁體中文**
 
-這是 **真・三國無雙7 Empires**(Steam 版)的非官方 Mod。只需要一個 `dinput8.dll`,並以 `version.ini` 進行設定。可以修正遊戲原有的錯誤、防止當機,並調整戰鬥平衡與畫面配置。
+這是 **真・三國無雙7 Empires**(Steam 版)的非官方 Mod。只需要一個 `dinput8.dll`,並以 `version.ini` 進行設定。可以修正遊戲原有的錯誤、防止當機,並調整戰鬥平衡、AI 的行為與畫面配置。也有把玩家角色交給 AI 操作的**自動戰鬥**。
 
-> **英文版與繁體中文版目前為測試版。** 日文版已經測試過很多次,但英文版和繁體中文版的測試次數還很少。如果發現問題,請回報(請參閱[回報問題](#回報問題))。
+> **英文版與繁體中文版目前為測試版。** 日文版已經測試過很多次,但英文版和繁體中文版的測試次數還很少。特別是新加入的功能(`[Status]` 之後的區段)尚未在英文版與中文版上實機測試。如果發現問題,請回報(請參閱[回報問題](#回報問題))。
+
+自上次發布以來的變更請參閱 [RELEASE_NOTES.zh-TW.md](RELEASE_NOTES.zh-TW.md)。
 
 ## 支援的版本
 
@@ -20,18 +22,14 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 
 ## 安裝方法
 
-1. 下載 `dinput8.dll` 和 `version.ini` `tau_battle_ai_empires_meiling.exe` or `tau_battle_ai_empires_meiling_no_cut.exe` 。
-中文版游戏与`overmase-AI-V1.4.exe`不兼容。您可以尝试安装TAU制作的替代mod https://drive.google.com/file/d/1Ci6f2cEV3uhXRVC5SeqpmYJ76btcUp09/view?usp=sharing（即使不安装也能正常游戏）。
+1. 下載 `dinput8.dll` 和 `version.ini`。
 2. 將兩個檔案放到遊戲資料夾(`Launch.exe` 所在的資料夾)。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. 运行 `tau_battle_ai_empires_meiling.exe` 或 `tau_battle_ai_empires_meiling_no_cut.exe`。如果弹出窗口并显示“成功！”，则表示运行成功。
-4. 照常啟動遊戲。
+3. 照常啟動遊戲。
+
+**更新:** 替換 `dinput8.dll`。`version.ini` 可以換成新的,或是把新的區段加到自己的 ini 中(沒有寫的項目會維持遊戲原始狀態)。
 
 **解除安裝:** 刪除 `dinput8.dll` 即可(也可以一併刪除 `version.ini`)。
-
-如果您下载此文件，Windows 可能会将其检测为病毒，但这是误报。请允许 Windows Defender 接受该文件。它是 GitHub 上的开源项目，
-所有修改均使用非恶意代码创建。overmase-AI-V1.4.exe(tau_battle_ai_empires_meiling.exe) 是使用 357E Editor 创建的补丁文件，
-也可能被误报为病毒。该工具和 357E Editor 的源文件可在此处找到：https://www.downxia.com/downinfo/382042.html
 
 請不要同時使用會修改相同位置的 Cheat Engine 腳本。如果 DLL 發現某個位置已經被其他程式修改,就不會啟用該功能,並在記錄中寫入 `[中止]`。
 
@@ -39,25 +37,55 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 
 所有功能都可以在 `version.ini` 中開啟、關閉或調整(檔案內的說明為日文與英文)。
 
+### 錯誤修正・防止當機
+
 | 區段 | 說明 |
 |---|---|
 | `[Mod]` StealPatch | 修正單位欄位不足時,我方武將不出現在戰場上的問題 |
-| `[Mod]` AllyStrayZako / AllyEscort / EnemyEscort / EnemyLinkedZakoLevel | 開啟或關閉我方的散兵與武將的護衛部隊,並減少敵方護衛附帶的士兵 |
-| `[Mod]` EnemyEscortRewrite / BaseEscortRewrite / RoamingEscortRewrite | 更改敵方護衛部隊(武將 / 據點兵長 / 遊擊隊長)的兵種 |
 | `[Mod]` UniqueModelBoxes | 增加可同時以專屬外觀出場的自創武將・固有武將人數(原本 6 → 14) |
 | `[Mod]` LoadTableGuard | 防止武將讀取表(90 筆)滿載時當機 |
-| `[Mod]` CrashGuard… | 防止遊戲原有錯誤造成的當機(7 種) |
+| `[Mod]` CrashGuard… | 防止遊戲原有錯誤造成的當機(包含武將動作指令資料損壞時的防護) |
+
+### 士兵・護衛
+
+| 區段 | 說明 |
+|---|---|
+| `[Mod]` AllyStrayZako / AllyEscort / EnemyEscort / EnemyLinkedZakoLevel | 開啟或關閉我方的散兵與武將的護衛部隊,並減少敵方護衛附帶的士兵 |
+| `[Mod]` EnemyEscortRewrite / BaseEscortRewrite / RoamingEscortRewrite | 更改敵方護衛部隊(武將 / 據點兵長 / 遊擊隊長)的兵種 |
+| `[EnemyPower]` | 敵方據點兵長、遊擊隊長、士兵造成傷害的倍率(不影響武將) |
+
+### 戰鬥平衡・能力
+
+| 區段 | 說明 |
+|---|---|
 | `[HpScale]` | 依 TypeID 設定 HP 倍率(減少受到的傷害 / 延長血條) |
-| `[Message]` | 調整畫面中央的訊息條與左側對話視窗的位置 |
-| `[Map]` | 在地圖切換中加入「隱藏」,調整周邊地圖的位置與大小 |
-| `[Affinity]` | 減弱武器相性不利時的慢動作,可取消反擊的緩衝時間 |
-| `[AllyHP]` | 在畫面左側顯示我方武將的名字與 HP(F9 切換顯示) |
+| `[Affinity]` | 減弱武器相性不利時的慢動作,可取消反擊的緩衝時間,相性不利時也能讓敵人硬直(`FlinchAtDisadvantage`) |
+| `[Status]` | 武將資訊畫面量表的最大值(`GaugeMax`)、能力上限(`StatMax`,最大 30000)、能力強化階段的最低值(`StatRank`,也可以寫成 `1-6` 這樣的範圍) |
 | `[Stratagem]` | 秘計的冷卻時間(自己 / 我方 AI / 敵方)、AI 的等待時間與點數回復、效果時間、對我方有效的範圍、自己的秘計量表最大值 |
 | `[StratagemOverride]` | 依秘計種類個別設定冷卻時間與效果時間的倍率(預設:挑釁〔挑発,TypeID 60〕的冷卻時間 10 倍、效果時間 20 倍) |
+
+### AI・戰場
+
+| 區段 | 說明 |
+|---|---|
+| `[AI]` | AI 強度(我方 / 敵方)、空中受身的機率,以及受身後或持續被打在空中時使出空中無雙・蓄力攻擊・普通攻擊・跳躍的機率 |
+| `[AITarget]` | 武將的 AI 鎖定附近的敵方武將、排除到不了的目標、減少敵方 AI 只鎖定玩家的情況 |
+| `[BaseCapture]` | AI 武將在畫面外削減據點耐久力的速度(我方 / 敵方) |
+| `[OffscreenMarch]` | 畫面外武將的進軍速度(我方 / 敵方),以及回防本陣時的額外速度 |
+| `[MainCamp]` | 敵方武將靠近本陣時,讓該軍的武將回去防守(我方 / 敵方)。也可以設定為回防途中不被敵人拖住 |
+| `[AutoBattle]` | **自動戰鬥**。F8 開啟 / F10 關閉(也可以使用手把按鍵組合)。AI 會進軍、壓制據點、防守本陣、攻擊、防禦與使用無雙。開啟期間可以減少受到的傷害 |
+
+### 畫面
+
+| 區段 | 說明 |
+|---|---|
+| `[Message]` | 調整畫面中央的訊息條與左側對話視窗的位置 |
+| `[Map]` | 在地圖切換中加入「隱藏」,調整周邊地圖的位置與大小 |
+| `[AllyHP]` | 在畫面左側顯示我方武將的名字與 HP(F9 切換顯示)。也可以在最上方顯示自己本陣的耐久力(`ShowCamp`) |
 | `[Camera]` | 一般鏡頭與防禦鏡頭的距離與角度(FOV) |
 | `[RawValue]` | 測試中的數值(進階使用者) |
 
-隨附的 `version.ini` 多數為本 Mod 的建議設定。把數值改回說明中寫的原始值,該部分就會恢復原狀。
+隨附的 `version.ini` 多數為本 Mod 的建議設定。新加入的區段(`[AI]` 之後)大多設為遊戲原始狀態(關閉)。把數值改回說明中寫的原始值,該部分就會恢復原狀。
 
 ### version.ini 常用設定
 
@@ -68,6 +96,7 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 | `Duration` | 秘計效果時間倍率 |
 | `BannerY` / `TalkOffsetX` / `TalkOffsetY` | 文字位置(以 1280×720 為基準的座標) |
 | `ToggleKey=120` | 我方 HP 顯示的切換鍵(120 = F9) |
+| `[AutoBattle]` `KeyOn=119` / `KeyOff=121` | 自動戰鬥的開啟鍵 / 關閉鍵(119 = F8,121 = F10) |
 
 ## 記錄檔
 

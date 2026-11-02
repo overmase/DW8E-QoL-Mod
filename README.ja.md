@@ -2,9 +2,11 @@
 
 **日本語** | [English](README.md) | [繁體中文](README.zh-TW.md)
 
-**真・三國無双7 Empires**(Steam 版)の非公式 mod です。`dinput8.dll` 1つで動き、`version.ini` で設定します。ゲーム本来の不具合を直したり、クラッシュを防いだりします。戦いのバランスや AI の動き、画面の配置も調整できます。プレイヤーの操作を AI に任せる「オートバトル」もあります。
+#このmodでゲームをプレイするとき最初はダウンロードした`version.ini`の設定されてる値はそのままで一度プレイすることをおすすめします
 
-> **英語版・中国語版は試験版です。** 日本語版は何度も試していますが、英語版と繁体字中国語版は試した回数がまだ少ないです。特に新しく足した機能(`[Status]` 以降の区画)は英語版・中国語版では実機で試していません。不具合があれば報告をお願いします([不具合の報告](#不具合の報告)を参照)。
+**真・三國無双7 Empires**(Steam 版)の非公式 mod です。`dinput8.dll` 1つで動き、[`version.ini`](https://steamcommunity.com/profiles/76561198400651705) で設定します。ゲーム本来の不具合を直したり、クラッシュを防いだりします。戦いのバランスや AI の動き、画面の配置も調整できます。プレイヤーの操作を AI に任せる「オートバトル」もあります。
+
+このファイルをダウンロードすると、Windowsがウイルスとして検出する場合がありますが、これは誤検出です。Windows Defenderのファイルを許可してくださいgithubにてオープンソースにしてあり,悪意のないコードを使ってmodを作っています overmase-AI-V~.exeは357E Editorで作成したパッチファイルです、これもウイルスとして誤検知される可能性があります、ツール元のファイルと357E Editorのソースはこちらです https://www.downxia.com/downinfo/382042.html
 
 前回の公開からの変更は [RELEASE_NOTES.ja.md](RELEASE_NOTES.ja.md) を見てください。
 
@@ -21,11 +23,14 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 これ以外の `Launch.exe` の時は何も書き換えません。`mod_log.txt` に `[停止]` と書くだけで、ゲームは普通に動きます。
 
 ## 入れ方
+`overmase-AI-V~.exe` `overmase-AI-V~anim_cut_musou`の違いは無双発動時にスクリーンアップせずに即無双攻撃します
+注意: `overmase-AI-V~anim_cut_musou`は龐徳のムーブセットの無双技「砂暴大征陣」が機能しません馬に乗らず地面に埋まって武器を振ります
 
-1. `dinput8.dll` と `version.ini` をダウンロードします。
-2. 2つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
+1. `dinput8.dll` と `version.ini`と　`overmase-AI-V~.exe` `overmase-AI-V~anim_cut_musou`どちらか好みの方をダウンロードします。
+2. 3つともゲームのフォルダ(`Launch.exe` がある所)に置きます。
    例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. いつもどおりゲームを起動します。
+3. overmase-AI-V~.exe起動しウィンドウが流れて最後にSuccess!とでていればインストール成功
+4. いつもどおりゲームを起動します。
 
 **更新する時:** `dinput8.dll` を入れ替えます。`version.ini` は新しい物に入れ替えるか、自分の ini に新しい区画を書き足してください(書いていない項目はゲーム本来のまま動きます)。
 
@@ -114,8 +119,7 @@ Issue に次の物を付けて送ってください。
 
 ## 作者
 
-- **overmase**(メイン)
-- **もりね**
+- **overmase**　https://steamcommunity.com/profiles/76561198400651705
 - **絶対助けるマン**
 
 ## ライセンス

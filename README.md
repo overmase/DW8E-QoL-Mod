@@ -2,7 +2,11 @@
 
 [日本語](README.ja.md) | **English** | [繁體中文](README.zh-TW.md)
 
+#When playing the game with this mod, it is recommended to play the game once with the default settings in the downloaded version.ini file.
+
 An unofficial mod for **Dynasty Warriors 8 Empires** (Steam version). It works as a single `dinput8.dll` and is configured with `version.ini`. It fixes several bugs in the game, prevents crashes, and lets you adjust battle balance, AI behavior and the on-screen layout. It also has an **auto battle** mode that hands your character to the AI.
+
+Downloading this file may cause Windows to detect it as a virus, but this is a false positive. Please allow Windows Defender to process the file. It is open source on GitHub, and the mod is created using non-malicious code. overmase-AI-V~.exe is a patch file created with 357E Editor; this may also be falsely detected as a virus. The source files for the tool and 357E Editor can be found here: https://www.downxia.com/downinfo/382042.html
 
 > **Beta for the English / Chinese versions.** The Japanese version has been tested a lot, but the English and Traditional Chinese versions have only been tested a few times. The newer features (`[Status]` and the sections after it) have not been tested in-game on the English / Chinese versions yet. Please send a report if you find a problem (see [Reporting problems](#reporting-problems)).
 
@@ -20,12 +24,21 @@ The DLL checks the build stamp of `Launch.exe` and picks the right addresses aut
 
 With any other `Launch.exe`, the DLL changes nothing. It writes `[停止]` (stopped) to `mod_log.txt` and the game runs normally.
 
-## Installation
+Differences between the Files
+The difference between overmase-AI-V~.exe and overmase-AI-V~anim_cut_musou is that the latter triggers the Musou Attack instantly without zooming in on the screen during activation.
 
-1. Download `dinput8.dll` and `version.ini`.
-2. Put both files in the game folder (the folder that contains `Launch.exe`).
-   Example: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. Start the game as usual.
+Note: With overmase-AI-V~anim_cut_musou, Pang De's Musou Attack "Desert Storm" will not function properly. He will not mount his horse and will instead get stuck in the ground while swinging his weapon.
+
+**Installation Guide
+
+1. Download dinput8.dll, version.ini, and either overmase-AI-V~.exe or overmase-AI-V~anim_cut_musou depending on your preference.
+
+2. Place all three files into your game directory where Launch.exe is located.
+Example: C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\
+
+3. Run overmase-AI-V~.exe. If the window scrolls through text and displays "Success!" at the very end, the installation was successful.
+
+4. Launch the game as you normally would.
 
 **To update:** replace `dinput8.dll`. Either replace `version.ini` with the new one, or add the new sections to your own ini (missing keys keep the vanilla behavior).
 
@@ -116,7 +129,7 @@ Please open an Issue and attach:
 
 ## Credits
 
-- **overmase** (main developer)
+- **overmase** https://steamcommunity.com/profiles/76561198400651705
 - **もりね** (Morine)
 - **絶対助けるマン** (Zettai Tasukeru Man)
 

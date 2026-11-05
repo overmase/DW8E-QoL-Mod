@@ -1,6 +1,6 @@
 # overmase-AI — 真・三國無双7 Empires AI mod
 
-[English](README.md) | **日本語**
+[English](overmseAI.md) | **日本語**
 
 **真・三國無双7 Empires**（Steam版）向けのAI・ゲームバランス改変modです。
 **TAU AI**、**リーパー mod**、**Extreme mod** の一部機能の移植と、オリジナルの変更が含まれます。

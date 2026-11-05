@@ -3,7 +3,7 @@
 [日本語](README.ja.md) | **English** | [繁體中文](README.zh-TW.md)
 
 overmase-AI-V~.exe installs a different mod than dinput8.dll. Please check the changes here to see what changes it makes.
-[日本語](overmaseAI.ja_1.md) | **English**
+[日本語](overmaseAI.ja_1.md) | [English](overmseAI.md)
 
 #When playing the game with this mod, it is recommended to play the game once with the default settings in the downloaded version.ini file.
 

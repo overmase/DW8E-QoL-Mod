@@ -1,6 +1,6 @@
 # overmase-AI — Dynasty Warriors 8 Empires AI Mod
 
-**English** | [日本語](README.ja.md)
+**English** | [日本語](overmaseAI.ja_1.md)
 
 An AI / gameplay overhaul mod for **Dynasty Warriors 8 Empires** (Steam).
 Includes features ported from **TAU AI**, the **Reaper mod**, and the **Extreme mod**, plus original changes.

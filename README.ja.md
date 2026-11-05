@@ -3,7 +3,7 @@
 **日本語** | [English](README.md) | [繁體中文](README.zh-TW.md)
 
 # overmase-AI-V~.exeはdinput8.dllとは違うModを導入します何を変えるのかこちらの変更点を確認してください
-**日本語** | [English](overmaseAI.md)
+**日本語** | [English](overmseAI.md)
 
 #このmodでゲームをプレイするとき最初はダウンロードした`version.ini`の設定されてる値はそのままで一度プレイすることをおすすめします
 

@@ -2,6 +2,9 @@
 
 **日本語** | [English](README.md) | [繁體中文](README.zh-TW.md)
 
+# overmase-AI-V~.exeはdinput8.dllとは違うModを導入します何を変えるのかこちらの変更点を確認してください
+**日本語** | [English](overmaseAI.md)
+
 #このmodでゲームをプレイするとき最初はダウンロードした`version.ini`の設定されてる値はそのままで一度プレイすることをおすすめします
 
 **真・三國無双7 Empires**(Steam 版)の非公式 mod です。`dinput8.dll` 1つで動き、[`version.ini`](https://steamcommunity.com/profiles/76561198400651705) で設定します。ゲーム本来の不具合を直したり、クラッシュを防いだりします。戦いのバランスや AI の動き、画面の配置も調整できます。プレイヤーの操作を AI に任せる「オートバトル」もあります。

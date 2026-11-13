@@ -11,6 +11,14 @@ An unofficial mod for **Dynasty Warriors 8 Empires** (Steam version). It works a
 
 #Please note that the author enjoys playing on a high difficulty level, and this mod will improve the overall quality of the game and increase its difficulty.
 
+- Known Bugs and Unfixed Design Features
+
+Due to changes in the HUD UI positioning, some selection options may be misaligned at the start of Conquest Mode, and weapon descriptions may be obscured by corrections, but these are due to design changes and do not affect the game, so they will not be fixed.
+
+Values ​​edited with 357E Editor cannot be reverted or edited again; please edit these yourself before making a request.
+
+Requests to change the game core are only accepted as suggestions; no changes will be added (only if you found it inconvenient in your own gameplay).
+
 An unofficial mod for **Dynasty Warriors 8 Empires** (Steam version). It works as a single `dinput8.dll` and is configured with `version.ini`. It fixes several bugs in the game, prevents crashes, and lets you adjust battle balance, AI behavior and the on-screen layout. It also has an **auto battle** mode that hands your character to the AI.
 
 Downloading this file may cause Windows to detect it as a virus, but this is a false positive. Please allow Windows Defender to process the file. It is open source on GitHub, and the mod is created using non-malicious code. overmase-AI-V~.exe is a patch file created with 357E Editor; this may also be falsely detected as a virus. The source files for the tool and 357E Editor can be found here: https://www.downxia.com/downinfo/382042.html

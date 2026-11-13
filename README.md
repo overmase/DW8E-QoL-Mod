@@ -53,13 +53,6 @@ Example: C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empi
 
 Do not use Cheat Engine scripts that change the same code at the same time. If the DLL finds that a place was already changed by something else, it skips that feature and writes `[中止]` (skipped) to the log.
 
-
-**To update:** replace `dinput8.dll`. Either replace `version.ini` with the new one, or add the new sections to your own ini (missing keys keep the vanilla behavior).
-
-**To uninstall:** delete `dinput8.dll` (and `version.ini` if you like).
-
-Do not use Cheat Engine scripts that change the same code at the same time. If the DLL finds that a place was already changed by something else, it skips that feature and writes `[中止]` (skipped) to the log.
-
 ## Features
 
 Every feature can be turned on or off, or adjusted, in `version.ini`. The file has comments in Japanese and English.
@@ -190,7 +183,7 @@ Please open an Issue and attach:
 
 ## Credits
 
-- **overmase** (main developer)
+- **overmase** (main developer) https://steamcommunity.com/profiles/76561198400651705
 - **もりね** (Morine)
 - **絶対助けるマン** (Zettai Tasukeru Man)
 

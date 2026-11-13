@@ -4,6 +4,12 @@
 
 這是 **真・三國無雙7 Empires**(Steam 版)的非官方 Mod。只需要一個 `dinput8.dll`,並以 `version.ini` 進行設定。可以修正遊戲原有的錯誤、防止當機,並調整戰鬥平衡、AI 的行為與畫面配置。也有把玩家角色交給 AI 操作的**自動戰鬥**。
 
+#使用此模组玩游戏时，建议先使用下载的 version.ini 文件中的默认设置运行一次游戏。
+
+這是 **真・三國無雙7 Empires**(Steam 版)的非官方 Mod。只需要一個 `dinput8.dll`,並以 `version.ini` 進行設定。可以修正遊戲原有的錯誤、防止當機,並調整戰鬥平衡、AI 的行為與畫面配置。也有把玩家角色交給 AI 操作的**自動戰鬥**。
+
+**下载此文件可能会导致 Windows 将其检测为病毒，但这是误报。请允许 Windows Defender 接受该文件。该文件在 GitHub 上开源，且该模组使用非恶意代码创建。 
+
 > **英文版與繁體中文版目前為測試版。** 日文版已經測試過很多次,但英文版和繁體中文版的測試次數還很少。特別是新加入的功能(`[Status]` 之後的區段、爭霸模式的功能、`[Drop]` 之後的區段)尚未在英文版與中文版上實機測試。如果發現問題,請回報(請參閱[回報問題](#回報問題))。
 
 自上次發布以來的變更請參閱 [RELEASE_NOTES.zh-TW.md](RELEASE_NOTES.zh-TW.md)。
@@ -20,12 +26,22 @@ DLL 會讀取 `Launch.exe` 的建置時間戳記,自動使用對應版本的位�
 
 如果是其他的 `Launch.exe`,DLL 不會做任何修改,只會在 `mod_log.txt` 寫入 `[停止]`,遊戲會正常執行。
 
-## 安裝方法
+**文件说明
 
-1. 下載 `dinput8.dll` 和 `version.ini`。
-2. 將兩個檔案放到遊戲資料夾(`Launch.exe` 所在的資料夾)。
-   例: `C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\`
-3. 照常啟動遊戲。
+文版游戏与overmase-AI-V~.exe不兼容。
+您可以尝试安装TAU制作的替代mod: https://drive.google.com/file/d/1Ci6f2cEV3uhXRVC5SeqpmYJ76btcUp09/view?usp=sharing
+https://steamcommunity.com/app/322520/discussions/0/3417682380495884007/
+
+tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe 的区别在于，后者在发动无双乱舞时不会放大特写镜头，而是直接触发无双攻击。
+注意：使用 tau_battle_ai_empires_meiling.exe 时，庞德的无双乱舞「砂暴大征阵」将无法正常运作。他不会骑马，而是会卡进地里挥动武器。 
+
+**安装方法 
+
+1. 下载 dinput8.dll、version.ini 以及 tau_battle_ai_empires_meiling.exe 或 tau_battle_ai_empires_meiling_no_cut.exe（请根据个人喜好选择其一）。
+2. 将这三个文件全部放入游戏根目录（即 Launch.exe 所在的文件夹）。
+例如：C:\Program Files (x86)\Steam\steamapps\common\Dynasty Warriors 8 - Empires\
+3. 运行 tau_battle_ai_empires_~.exe，如果窗口滚动到最后显示“Success!”，则说明安装成功。
+4. 像往常一样启动游戏即可。
 
 **更新:** 替換 `dinput8.dll`。`version.ini` 可以換成新的,或是把新的區段加到自己的 ini 中(沒有寫的項目會維持遊戲原始狀態)。
 

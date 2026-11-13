@@ -2,6 +2,9 @@
 
 [日本語](README.ja.md) | **English** | [繁體中文](README.zh-TW.md)
 
+overmase-AI-V~.exe installs a different mod than dinput8.dll. Please check the changes here to see what changes it makes.
+[日本語](overmaseAI.ja_1.md) | [English](overmseAI.md)
+
 An unofficial mod for **Dynasty Warriors 8 Empires** (Steam version). It works as a single `dinput8.dll` and is configured with `version.ini`. It fixes several bugs in the game, prevents crashes, and lets you adjust battle balance, AI behavior and the on-screen layout. It also has an **auto battle** mode that hands your character to the AI.
 
 #When playing the game with this mod, it is recommended to play the game once with the default settings in the downloaded version.ini file.

@@ -86,9 +86,10 @@ There are two versions. Choose whichever you prefer.
     This just gives you a bit of leeway to back off — they'll still spam Musou Attacks.
 18. **Aura activation rate:** The AI's aura activation rate when entering combat mode has been changed from 90% → 40%–70% (the black-red aura at max morale, or that Lu Bu aura).
 
+19. **All weapons will randomly gain elemental attacks, and the types of weapons that gain elemental properties through charged attacks will increase.
 ### Empire Mode
 
-19. **Unique weapons in shops:** If you build 7 or more Weapon Shops, you can purchase Unique weapons.
+20. **Unique weapons in shops:** If you build 7 or more Weapon Shops, you can purchase Unique weapons.
 
 ---
 

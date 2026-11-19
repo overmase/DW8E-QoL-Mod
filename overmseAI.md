@@ -99,7 +99,7 @@ There are two versions. Choose whichever you prefer.
 - **Leftover parameters:** Some parameters I changed to make values easier to search for in 357E Editor have been left as-is, so things like weapon purchase prices remain increased.
 - **Evade (転身):** Behaves strangely when used with non-favored weapons (see Changes #8).
 - **Pang De (`anim_cut_musou` only):** His Musou "Sabou Daiseijin" does not work properly.
-
+- **We are not accepting requests to change settings; please change the settings yourself using the 357E Editor.
 ---
 
 <sub>Tags: Dynasty Warriors 8 Empires AI / Dynasty Warriors 8 Empires AI mod / 真・三國無双7 Empires AI mod</sub>

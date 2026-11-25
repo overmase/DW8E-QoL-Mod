@@ -68,6 +68,7 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[Mod]` UniqueModelBoxes | エディット武将・固有武将を同時に固有の見た目で出せる人数を増やす(ゲーム本来 6 → 14) |
 | `[Mod]` LoadTableGuard | 武将の読み込みの表(90件)が満杯になって落ちるのを防ぐ |
 | `[Mod]` CrashGuard… | ゲーム本来の不具合によるクラッシュの守り(武将の動きの命令のデータが壊れている時の守りを含む) |
+| `[Mod]` RandomSeed | ゲームの乱数が起動ごとに同じ並びになり、フリーモードのランダム武将などが毎回同じになる不具合の対策 |
 
 ### 兵・随伴
 
@@ -76,6 +77,7 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[Mod]` AllyStrayZako / AllyEscort / EnemyEscort / EnemyLinkedZakoLevel | 味方の野良雑魚兵や武将の随伴を出す・出さない、敵の随伴に付く雑魚兵を減らす |
 | `[Mod]` EnemyEscortRewrite / BaseEscortRewrite / RoamingEscortRewrite | 敵の随伴(武将・拠点兵長・遊撃隊長)の兵の種類を書き換える |
 | `[EnemyPower]` | 敵の拠点兵長・遊撃隊長・兵が与えるダメージの倍率(武将は対象外) |
+| `[Mod]` EnemyOfficerEscortSize / EnemyBaseEscortSize / EnemyRoamingEscortSize | 敵の随伴の一般の兵の人数の倍率(`EscortSizeLimit` で戦場の人数の上限)。戦場に体を持って出られるのは全部で 150 人までなので、**1 より大きくするのはおすすめしません** |
 
 ### 戦いのバランス・能力
 
@@ -87,6 +89,10 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[Stratagem]` | 秘計の再使用までの長さ(自分 / 味方の AI / 敵)、AI の待ち時間・ポイントの回復、効果時間、味方に効く範囲、自分の秘計ゲージの最大値 |
 | `[StratagemOverride]` | 秘計の種類ごとのクールタイム・効果時間の倍率(全部の秘計の番号と名前を ini に書いてあります) |
 | `[WeaponAffinity]` | 武器の適正(★)ごとの攻撃の補正(ゲーム本来 2 / 5 / 7 / 10)。プレイヤーだけにもできる |
+| `[StratagemParam]` / `[StratagemInfo]` / `[StratagemShotParam]` | 秘計の定義の値(効果の種類・時間・強さ・コスト・クールタイム・AI が使う確率・大規模秘計で撤退する部隊の数・味方に効くか など)を直接書き換える(上級者向け)。元の値は `DW8E_StratagemParam_Default.txt` に書き出されます |
+| `[StratagemAI]` | 使えなかった秘計「絆」「集中射撃」の解禁(`Unlock`)、拠点急襲・拠点占拠で取る拠点の数(`BaseRaidCount` / `BaseSeizeCount`)、召集で呼ぶ人数(`SummonCount`) |
+| `[Rescue]` | HP が少ない味方の武将に近づくと HP を回復する(「○○を救援」) |
+| `[Chaos]` | 戦場に入った時、自分の武器 2 本を全種類からランダムにする(`RandomWeapon`、強さは `RandomWeaponTier`) |
 
 ### AI・戦場の動き
 
@@ -98,6 +104,13 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[OffscreenMarch]` | 画面の外の武将の進軍の速さ(味方・敵別々)、本陣を守りに戻る時の速さ |
 | `[MainCamp]` | 本陣の近くに敵の武将が来たら、その軍の武将に本陣を守らせる(味方・敵別々)。戻る途中で足止めされないようにもできる |
 | `[AutoBattle]` | **オートバトル**。F8 で入れる / F10 で切る(パッドのボタンの同時押しも可)。進軍・制圧・本陣の防衛・攻撃・ガード・無双を AI が行う。オートの間は受けるダメージを減らせる |
+| `[AI]` Aggressive… / CloseIdle… / …GuardHoldMs / ReactGuard… / ReactAfter… | 「様子見」を飛ばす攻撃的な AI、密着された時の行動、ガードを解くまでの遅れ、相手の攻撃へのガードとその後の行動 |
+| `[AI]` AffinitySwitchAlly / AffinitySwitchEnemy / AISwitch | 味方・敵の武将も相性を見て武器を切り替える(クールタイム付き)。AI の切り替え攻撃を出さない・別の動きにする(試験) |
+| `[AITarget]` SkipDeadTarget / EscortNearRange | 倒れた相手を狙い続けない。護衛要請で連れた武将が近くの敵の武将を狙う |
+| `[AutoBattle]` UseStratagem / AffinitySwitch / UnstuckAttack | オートバトル中に秘計を使う、相性を見て R1 で武器を切り替える、引っかかった時に通常攻撃も出す |
+| `[MainCamp]` OnlyWhenReachable | 本陣まで拠点がつながっていない時は 本陣を守りに戻らない |
+| `[Situation]` | 戦闘の始めの拠点の割り振りを 兵力の比で決め直す(`TroopRatio`、超劣勢の戦いなど) |
+| `[Base]` / `[BaseUpgrade]` / `[BaseEffect]` | 拠点の種類と Lv のランダム、本陣・副本陣の Lv、拠点の耐久力の倍率、拠点強化のコスト、攻撃・防御・補給拠点の効果の値 |
 
 ### 操作・ターゲット
 
@@ -123,6 +136,9 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[AllyHP]` | 味方の武将の名前と HP を画面の左端に出す(F9 で入り切り)。一番上に自分の本陣の耐久力も出せる(`ShowCamp`) |
 | `[Hud]` | 画面の部品(自分のゲージ・命令の枠・K.O.COUNT・地図・戦局のゲージ・連撃数・敵の武将のゲージ・拠点の耐久力の枠)の位置をずらす。強化(アイテム・秘計)の残り時間を画面の下に出す(`BuffTime`)。無双ゲージの本数と HP の数値を文字で出す(`PlayerInfo`、F9)。自分と敵の武将の HP ゲージを最大HP 1000 より先まで伸ばす(`HpBar…` / `TargetBar…`) |
 | `[Camera]` | 通常時・ガード時のカメラの距離と角度(FOV) |
+| `[Camera]` WallCollision | カメラの壁・設置物の当たり判定を切る(壁ぎわでもカメラが止まらない) |
+| `[Hud]` TargetHP / TargetLevel / PlayerInfoLevel | ターゲットした敵の武将の HP の数・Lv、自分の Lv を出す |
+| `[Text]` | ゲームの文を番号で置き換える(秘計の名前・説明など。戦場の秘計の欄はまだ変わりません) |
 | `[RawValue]` | 試験中の数値(上級者向け) |
 
 ### 戦場の環境・画質
@@ -148,12 +164,23 @@ DLL が `Launch.exe` の作成日時の印を見て、版に合った場所を�
 | `[Conquest]` FixSortieDamage | 損壊した地域に攻め込む時に、**攻める側**の出撃枠まで減ってしまう公式の不具合の修正 |
 | `[Conquest]` AllianceMonths / AllianceMonthsMax | 同盟の期間(か月)。固定、または乱数(例: 6〜12) |
 | `[Conquest]` HideDamageForecast | 地域の情報の「損害予測」を出さない(損壊度を乱数にした時用) |
+| `[Conquest]` AllyGrowth / EnemyGrowth | 自分以外の武将(自国 / 他国・在野)の功績の増え方の倍率 |
+| `[Conquest]` FatigueAdd / FatigueMul / FatigueStat / FatigueStat2 | 戦場から帰った時に増える疲労の量と、疲労で下がる能力の % |
+| `[Conquest]` StageMap | 争覇の地域の戦場を置き換える |
 | `[AutoSave]` | 月が変わった時(戦場から帰った時も)に自動でクイックセーブし、`Savedata\ModAutoSave` に日時付きの控えを残す。`BlockSoftReset` でソフトリセット(Space + Delete / Start + Select)を争覇の間だけ、またはいつも止められる |
 | `[ConquestParam]` | 争覇の決まった値の表を直接書き換える(上級者向け) |
 
+### フリーモード
+
+| 区画 | 内容 |
+|---|---|
+| `[FreeMode]` Random… | 出撃武将のランダムに 無双武将 / 汎用武将 / エディット武将 を入れるか |
+| `[FreeMode]` RequestOfficer | 依頼戦の固定の「旅団長」を別の武将に差し替える(試験) |
+| `[FreeMode]` ExtraStages / StageMap / StageName… | 前作の許昌(護衛)・洛陽(暗殺)などのマップを戦場の一覧に足す、地域の戦場を置き換える、一覧の名前 |
+
 同梱の `version.ini` は、作者が実際に遊んでいる設定です(多くの機能が入っています)。説明に書いてあるゲーム本来の値に戻すと、その部分は元どおりになります。
 
-**今は使えない項目:** `[Drop]` `WeaponDropChance`、`[Display]` `Width` / `Height`、`[Debug]` の全部、`[EnemyPower]` の `…Difficulty` / `…AiRow`。ini にも「These don't work now」と書いてあります。値を変えないでください。
+**今は使えない項目:** `[Drop]` `WeaponDropChance`、`[Display]` `Width` / `Height`、`[Debug]` の調べ用の項目(`DumpText` / `DemoSeconds` / `WatchResetKey` 以外)、`[StratagemAI]` `Use`(保留中)、`[Camera]` `TerrainCollision`、`[EnemyPower]` の `…Difficulty` / `…AiRow`。ini にも「These don't work now」と書いてあります。値を変えないでください。
 
 ## ログの見方
 

@@ -67,6 +67,7 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[Mod]` UniqueModelBoxes | 增加可同時以專屬外觀出場的自創武將・固有武將人數(原本 6 → 14) |
 | `[Mod]` LoadTableGuard | 防止武將讀取表(90 筆)滿載時當機 |
 | `[Mod]` CrashGuard… | 防止遊戲原有錯誤造成的當機(包含武將動作指令資料損壞時的防護) |
+| `[Mod]` RandomSeed | 修正遊戲亂數每次啟動都是相同順序(自由模式的隨機武將等每次都一樣)的問題 |
 
 ### 士兵・護衛
 
@@ -75,6 +76,7 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[Mod]` AllyStrayZako / AllyEscort / EnemyEscort / EnemyLinkedZakoLevel | 開啟或關閉我方的散兵與武將的護衛部隊,並減少敵方護衛附帶的士兵 |
 | `[Mod]` EnemyEscortRewrite / BaseEscortRewrite / RoamingEscortRewrite | 更改敵方護衛部隊(武將 / 據點兵長 / 遊擊隊長)的兵種 |
 | `[EnemyPower]` | 敵方據點兵長、遊擊隊長、士兵造成傷害的倍率(不影響武將) |
+| `[Mod]` EnemyOfficerEscortSize / EnemyBaseEscortSize / EnemyRoamingEscortSize | 敵方隨從一般士兵人數的倍率(`EscortSizeLimit` 為戰場人數上限)。戰場上有實體的人數總共只有 150 人,**不建議設為大於 1** |
 
 ### 戰鬥平衡・能力
 
@@ -86,6 +88,10 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[Stratagem]` | 秘計的冷卻時間(自己 / 我方 AI / 敵方)、AI 的等待時間與點數回復、效果時間、對我方有效的範圍、自己的秘計量表最大值 |
 | `[StratagemOverride]` | 依秘計種類個別設定冷卻時間與效果時間的倍率(ini 中列出了所有秘計的編號與名稱) |
 | `[WeaponAffinity]` | 各武器適性(★)的攻擊加成(原始 2 / 5 / 7 / 10),也可以只對玩家 |
+| `[StratagemParam]` / `[StratagemInfo]` / `[StratagemShotParam]` | 直接改寫秘計定義的數值(效果種類・時間・強度・消耗・冷卻・AI 使用機率・大規模秘計撤退的部隊數・是否對友軍有效等,進階)。原始數值會寫到 `DW8E_StratagemParam_Default.txt` |
+| `[StratagemAI]` | 解鎖無法使用的秘計「絆」「集中射擊」(`Unlock`)、據點急襲・據點佔領奪取的據點數(`BaseRaidCount` / `BaseSeizeCount`)、召集的人數(`SummonCount`) |
+| `[Rescue]` | 接近 HP 偏低的友軍武將時回復其 HP(「救援○○」) |
+| `[Chaos]` | 進入戰場時,自己的 2 把武器從所有種類中隨機決定(`RandomWeapon`,強度用 `RandomWeaponTier`) |
 
 ### AI・戰場
 
@@ -97,6 +103,13 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[OffscreenMarch]` | 畫面外武將的進軍速度(我方 / 敵方),以及回防本陣時的額外速度 |
 | `[MainCamp]` | 敵方武將靠近本陣時,讓該軍的武將回去防守(我方 / 敵方)。也可以設定為回防途中不被敵人拖住 |
 | `[AutoBattle]` | **自動戰鬥**。F8 開啟 / F10 關閉(也可以使用手把按鍵組合)。AI 會進軍、壓制據點、防守本陣、攻擊、防禦與使用無雙。開啟期間可以減少受到的傷害 |
+| `[AI]` Aggressive… / CloseIdle… / …GuardHoldMs / ReactGuard… / ReactAfter… | 跳過「觀望」的積極 AI、被貼身時的行動、解除防禦的延遲、對對手攻擊的防禦與之後的行動 |
+| `[AI]` AffinitySwitchAlly / AffinitySwitchEnemy / AISwitch | 友軍・敵軍武將也依相性切換武器(附冷卻)。不讓 AI 使出切換攻擊或換成其他動作(試驗) |
+| `[AITarget]` SkipDeadTarget / EscortNearRange | 不持續瞄準倒下的對象。護衛要請帶著的武將瞄準附近的敵將 |
+| `[AutoBattle]` UseStratagem / AffinitySwitch / UnstuckAttack | 自動戰鬥中使用秘計、依相性按 R1 切換武器、卡住時也使出通常攻擊 |
+| `[MainCamp]` OnlyWhenReachable | 據點沒有連到本陣時,不回去防守本陣 |
+| `[Situation]` | 以兵力比重新決定戰鬥開始時的據點分配(`TroopRatio`,例如極度劣勢的戰鬥) |
+| `[Base]` / `[BaseUpgrade]` / `[BaseEffect]` | 據點種類與 Lv 的隨機、本陣・副本陣的 Lv、據點耐久度倍率、據點強化費用、攻擊・防禦・補給據點的效果數值 |
 
 ### 操作・鎖定目標
 
@@ -122,6 +135,9 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[AllyHP]` | 在畫面左側顯示我方武將的名字與 HP(F9 切換顯示)。也可以在最上方顯示自己本陣的耐久力(`ShowCamp`) |
 | `[Hud]` | 移動畫面元件的位置(自己的量表、指令框、K.O.COUNT、地圖、戰況量表、連擊數、敵方武將量表、據點耐久框),並在畫面下方顯示強化效果(道具・秘計)的剩餘時間(`BuffTime`)。以文字顯示無雙量表條數與 HP 數值(`PlayerInfo`,F9)。讓自己與敵方武將的 HP 量表超過最大 HP 1000 繼續延長(`HpBar…` / `TargetBar…`) |
 | `[Camera]` | 一般鏡頭與防禦鏡頭的距離與角度(FOV) |
+| `[Camera]` WallCollision | 關閉鏡頭對牆壁・設置物的碰撞(靠牆時鏡頭也不會卡住) |
+| `[Hud]` TargetHP / TargetLevel / PlayerInfoLevel | 顯示瞄準中敵將的 HP 數字・Lv,以及自己的 Lv |
+| `[Text]` | 以編號替換遊戲文字(秘計名稱・說明等。戰場上的秘計欄還不會改變) |
 | `[RawValue]` | 測試中的數值(進階使用者) |
 
 ### 戰場環境・畫質
@@ -147,12 +163,23 @@ tau_battle_ai_empires_meiling.exe 与 tau_battle_ai_empires_meiling_no_cut.exe �
 | `[Conquest]` FixSortieDamage | 修正官方錯誤:攻入已損壞的地區時,連**進攻方**的出擊人數也會減少 |
 | `[Conquest]` AllianceMonths / AllianceMonthsMax | 同盟期間(月),可固定或隨機(例: 6〜12) |
 | `[Conquest]` HideDamageForecast | 不顯示地區資訊的「損害預測」(損壞度設為隨機時使用) |
+| `[Conquest]` AllyGrowth / EnemyGrowth | 自己以外武將(本國 / 他國・在野)的功績增加倍率 |
+| `[Conquest]` FatigueAdd / FatigueMul / FatigueStat / FatigueStat2 | 從戰場回來時增加的疲勞量,以及疲勞造成的能力 % |
+| `[Conquest]` StageMap | 替換爭霸地區的戰場 |
 | `[AutoSave]` | 月份變更時(從戰場回來時也是)自動快速存檔,並在 `Savedata\ModAutoSave` 保留附日期時間的備份。`BlockSoftReset` 可以只在爭霸模式中、或一律阻止軟重置(Space + Delete / Start + Select) |
 | `[ConquestParam]` | 直接修改爭霸的固定參數表(進階使用者) |
 
+### 自由模式
+
+| 區塊 | 內容 |
+|---|---|
+| `[FreeMode]` Random… | 出擊武將的隨機是否包含 無雙武將 / 泛用武將 / 編輯武將 |
+| `[FreeMode]` RequestOfficer | 把依賴戰固定的「旅團長」換成其他武將(試驗) |
+| `[FreeMode]` ExtraStages / StageMap / StageName… | 在戰場清單加入前作的許昌(護衛)・洛陽(暗殺)等地圖、替換地區的戰場、清單名稱 |
+
 隨附的 `version.ini` 是作者實際遊玩時的設定(開啟了許多功能)。把數值改回說明中寫的原始值,該部分就會恢復原狀。
 
-**目前無法使用的項目:** `[Drop]` `WeaponDropChance`、`[Display]` `Width` / `Height`、`[Debug]` 的全部、`[EnemyPower]` 的 `…Difficulty` / `…AiRow`。ini 中也標有「These don't work now」。請不要更改。
+**目前無法使用的項目:** `[Drop]` `WeaponDropChance`、`[Display]` `Width` / `Height`、`[Debug]` 的調查用項目(`DumpText` / `DemoSeconds` / `WatchResetKey` 以外)、`[StratagemAI]` `Use`(暫緩中)、`[Camera]` `TerrainCollision`、`[EnemyPower]` 的 `…Difficulty` / `…AiRow`。ini 中也標有「These don't work now」。請不要更改。
 
 ### version.ini 常用設定
 

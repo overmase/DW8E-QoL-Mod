@@ -1,4 +1,152 @@
-# What's new — 2026-11-13 (163)
+# What's new — 2026-11-25 (272)
+
+Changes since the previous tester build **2026-11-13 (163)**. Older changes are listed further down under "Changes in earlier builds".
+
+> **About the included `version.ini`:** it is again the author's own play settings. It also reworks the "Bond" and "Focused Fire" stratagems (see "Stratagems" below) and turns off the camera's wall collision. To test something closer to the original game, set each value back to the "vanilla" value written in its comment.
+
+> **English / Traditional Chinese versions:** the new features were tested on the Japanese version. They are ported to the English and Chinese versions automatically but have not been tested in-game there yet. Please report any problem or crash.
+
+## Stratagems
+
+### Edit stratagem values directly `[StratagemParam]` / `[StratagemInfo]` / `[StratagemShotParam]` (advanced)
+- `[StratagemParam]` `type.offset(hex)=value`: rewrites a value in the stratagem definition: effect type, duration, strength, cost, cooldown, AI use chance, and for large-scale stratagems the number of units that retreat (`+26`), the delay before it fires (`+28`) and the number of bases needed (`+2A`), whether it also affects allies (`+32`) and its radius (`+34`), etc.
+  - The original values of every stratagem are written to **`DW8E_StratagemParam_Default.txt`** in a copy-and-paste format (made when you enter a battle with `[StratagemAI] Dump=1`). Copy only the lines you want to change into `[StratagemParam]` and edit the numbers.
+  - A line equal to the game's original value does nothing (multipliers such as `[StratagemOverride]` still apply).
+  - Example (included ini): `64.26=0` to `77.26=0` — officers no longer retreat when a large-scale stratagem is used.
+- `[StratagemInfo]` `type.offset=value`: rewrites the stratagem info table (unlocked from the start, category, usable modes).
+- `[StratagemShotParam]`: rewrites the values of objects fired by attack stratagems (fire blast etc.).
+
+### Make Bond and Focused Fire usable `[StratagemAI] Unlock`
+- `Unlock=48,52`: unlocks "Bond" and "Focused Fire" — they exist in the data but could not be used — from the start, equippable in every mode.
+- The included ini reworks both:
+  - **Bond**: raises move speed and attack speed of yourself and nearby allies for 25 seconds (`48.04` / `48.06` / `48.08` / `48.0E` / `48.10` / `48.32` / `48.34`).
+  - **Focused Fire → Focused Attack**: same effect as Summon, pulls 2 officers to you (`52.06=49` and `[StratagemAI] SummonCount=52:2`).
+
+### Number of bases taken by Base Raid / Base Seize `[StratagemAI]`
+- `BaseRaidCount` / `BaseSeizeCount` (1–19, vanilla 1): number of bases taken by Base Raid / Base Seize. Also applies when the enemy uses them.
+
+### Number of officers summoned `[StratagemAI]`
+- `SummonCount=type:count,…` (1–6): how many officers a stratagem with the Summon effect pulls. Example: `52:2`.
+
+### Replace game text `[Text]`
+- `id=text`: replaces a game text (ini is UTF-8, `\n` for a new line). The ids are the same as in `DW8E_Text.txt` made by `[Debug] DumpText=1`.
+- Stratagem name = 20878 + type, description = 21134 + type, short description = 21262 + type.
+- The included ini (Japanese text) renames Focused Fire to "Focused Attack" and updates the Bond / Focused Attack descriptions.
+
+## Rescue `[Rescue]`
+- Like "use this to heal" in request battles: when you get near (`Range`) an allied officer whose HP is low (`HpBelow` %), their HP is restored to `HealTo` %. "Rescued ○○" is shown at the top of the screen. The same officer waits `Cooldown` seconds. Turn on with `Enable=1`.
+
+## AI
+
+### Weapon switching
+- `[AI] AffinitySwitchAlly` / `AffinitySwitchEnemy`: allied / enemy officers also switch weapons when they are not at an advantage against the officer they are targeting (`AffinitySwitchCooldownMs`, default 12000 = 12 seconds per officer).
+- `[AI] AISwitch` (experimental): stops the AI's switch attack (the delayed switch) (`1`), or replaces it with another motion (`SwitchReplace`) (`2`).
+
+### Target choice `[AITarget]`
+- `SkipDeadTarget=1`: the AI stops targeting someone whose HP is 0 (a fallen body). Prevents allies from juggling a defeated enemy forever so the body never disappears and nothing moves on.
+
+### Auto battle `[AutoBattle]`
+- `UseStratagem=1`: uses stratagems during auto battle, with the same decision as officer AI.
+- `UseInstallStratagem`: use (`1`) / don't use (`0`) placed stratagems (tower, catapult, altar, traps).
+- `AffinitySwitch=1`: checks affinity against the targeted enemy officer and switches with R1 if the other weapon is better (`AffinitySwitchRange` / `AffinitySwitchCooldownMs`).
+
+## Camera `[Camera]`
+- `WallCollision=0`: turns off the camera's collision with walls and placed objects. The camera no longer gets stuck near walls (you may see inside or behind walls).
+
+## Conquest `[Conquest]`
+
+- **Growth of other officers** `AllyGrowth` / `EnemyGrowth`: multiplier for merit (EXP) gained by officers of your force / other forces and free officers. Applies to monthly growth, battles and commands. Does not apply to the player. Levels go up the next day as in the game.
+- **Fatigue after a battle** `FatigueAdd` / `FatigueMul`: a fixed amount of fatigue to add (`-1` = off), or a multiplier for the vanilla amount (about 20 per battle).
+- **Stats lowered by fatigue** `FatigueStat=heavy,medium,light` (vanilla 70,80,90) / `FatigueStat2=heavy/light,medium` (vanilla 50,70): stat % at each fatigue stage. The numbers on the officer info screen change too.
+  - HP and defense get item bonuses added afterwards, so they look less affected than attack and command.
+- `AllianceMonths` now accepts a range like `8-12`.
+- `StageMap`: replaces the battlefield of a conquest region, same format as Free Mode.
+- `[CommandCost]`: Retire (87) can also be given troop / gold costs (example in the ini).
+- **Fix**: with `FixSortieDamage=1`, the attacker's sortie slots were also reduced when you were not the ruler or when another force attacked. Fixed.
+
+## Starting situation `[Situation]`
+
+- `TroopRatio`: redoes the start-of-battle base split as if your troops were "enemy troops × this value". Around `0.2` is a heavy disadvantage, `0` = off, `0.1-0.5` = random. The same multiplier goes into the situation gauge.
+
+## Free Mode `[FreeMode]`
+
+- **Random candidates** `RandomUnique` / `RandomGeneric` / `RandomCustom`: choose whether unique / generic / edit officers are included in the random sortie officers (not filtered if fewer than 16 would remain).
+- **Replace the request battle brigade leader** `RequestOfficer=1` (experimental): replaces the fixed "brigade leader" in Free Mode request battles with an officer from the candidates (`RequestUnique` / `RequestGeneric` / `RequestCustom`).
+- **Special maps** `ExtraStages=29,28`: adds the previous game's Xu Chang (escort) / Luoyang (assassination) maps to the Free Mode stage list (28, 29, 143–149 can be used).
+  - `StageMap=region:id,…` / `AttackStage`: changes the battlefield when a region is chosen (0–23, 28, 29, 140–149; 24–27 crash and cannot be used).
+  - `StageName<id>` (Japanese version) / `StageName<id>_EN` (English version, ASCII only) / `StageName<id>_CN` (Chinese version, Simplified): name shown in the list.
+
+## Bases `[Base]` / `[BaseUpgrade]` / `[BaseEffect]`
+
+- **Random bases** `RandomAlly` / `RandomEnemy` (%): in Conquest / Free Mode, replaces bases that start as normal bases with supply / attack / defense bases. Level from `RandomLevelAlly` / `RandomLevelEnemy` (e.g. `2-4`), type weights from `RandomWeight=supply,attack,defense`.
+- **Main / sub camp level** `MainCampLevelAlly` / `MainCampLevelEnemy` / `SubCampLevelAlly` / `SubCampLevelEnemy`: 1–4, or random like `2-4`.
+- **Base durability** `DurabilityLv=Lv1,Lv2,Lv3,Lv4` / `DurabilityCamp` (main / sub camps; one value for all, or four for each level): durability multiplier when the battle starts.
+- **Base upgrade cost** `LevelCost` (level up, Lv2,Lv3,Lv4) / `RebuildCost` (rebuild, current Lv 1–4): Conquest supplies. `FreeLevelCost` / `FreeRebuildCost` are Free Mode bonus points. One value = all the same, empty = vanilla. `CostMul` / `FreeCostMul` multiply the ones not written.
+- **Base effects** `AttackTable` / `DefenseTable` / `SupplyTable`: value when you hold 1, 2, 3 … bases (vanilla 150,180,200 …). Attack = damage × (1 + value × 0.0025), defense = max HP × (value + 100) ÷ 200, supply = troop recovery × value ÷ 100.
+- `HPCap`: battle HP cap (vanilla 1000). Keeps the defense base multiplier from being lost at 1000.
+- `DefenseLive`: re-applies HP when the number of defense bases changes (1 = player / 2 = officers too). In the vanilla game the player does not get the defense base effect.
+- The base level cap of 4 cannot be changed.
+
+## Enemy escorts `[Mod]`
+
+- `EnemyOfficerEscortSize` / `EnemyBaseEscortSize` / `EnemyRoamingEscortSize`: multiplier for the number of escort soldiers of enemy officers / base captains / roaming captains (up to 30 per unit). Only regular soldiers (soldiers, guards, cavalry, archers, etc.) increase.
+  - **Raising these above 1 is not recommended** (see "Known issues" below).
+- `EscortSizeLimit` (default 80, 0 = none): cap on the number of people on the battlefield when escorts are increased.
+- Changed what `EnemyLinkedZakoLevel` below 4 does with `EnemyEscort=1`: `0` = no escorts, `1`–`3` = enemy officer escort size × 0.3 / 0.5 / 0.7.
+- **Fix**: with `EnemyEscort=1` and `EnemyLinkedZakoLevel` below 4, many invisible enemy officer icons appeared on the map and auto battle stopped moving on. Fixed.
+- `SquadId` / `BaseSquadId` / `RoamingSquadId` no longer accept battlefield-only units (tigers, siege weapons, sorcerers, bandits, etc.) because they are invisible or crash (an error is written to mod_log).
+
+## Random weapons `[Chaos]`
+
+- `RandomWeapon=1`: when a battle starts, your two weapons are randomized from all types (affinity random too). They go back to your original two when you leave the battle.
+- `RandomWeaponTier` (1–10, default 3): which strength rank of each weapon type is used. A range like `4-9` also works.
+
+## AI behavior `[AI]` / `[AITarget]` / auto battle / main camp defense
+
+- **Aggressive AI** `[AI] AggressivePlayer` / `AggressiveAlly` / `AggressiveEnemy` (0–100 %): like the demo play AI, skips "wait and see" actions with this chance. Player = yourself in auto battle.
+- **When pressed up close** `[AI] CloseIdleMs` / `CloseIdleRange` / `CloseIdleGuard` / `Attack` / `Charge` / `Jump` / `Move`: when an enemy officer stays idle right next to you for `CloseIdleMs`, makes it guard / attack / charge / jump / move a little by chance.
+- **Guard release delay** `[AI] AllyGuardHoldMs` / `EnemyGuardHoldMs`: the AI keeps guarding for this long (ms) after it would stop.
+- **Guard against attacks** `[AI] ReactGuardNormal` / `Charge` / `Switch` / `EX` / `Storm` (%), `ReactGuardRange` / `ReactGuardMs`.
+- **After guarding** `ReactAfterJump` (jump attack at the opponent) / `ReactAfterCombo` (close in with a normal combo) (%), `ReactComboMs` / `ReactComboRange`.
+- `[Target] TurnSpeed`: turning speed. **2.25 or more breaks movement when hit by a grab-type Musou**, so keep it at 2.2 or less.
+- `[AutoBattle] UnstuckAttack`: also uses normal attacks while sliding sideways when stuck or while jumping (1 = sideways, 2 = jump, 3 = both).
+- `[MainCamp] OnlyWhenReachable=1`: does not go back to defend the main camp when the attacker's bases do not connect to it (the main camp cannot be taken).
+- `[AITarget] EscortNearRange` (default 0, recommended 600–1000): officers you lead from an escort request target an enemy officer within this distance. Works only with `OfficerNearest=1`.
+- **Fix**: with `[AITarget] OfficerNearest=1`, officers from an escort request stood still doing nothing even with enemies nearby. Fixed.
+
+## Screen `[Hud]`
+
+- `TargetHP=1`: shows the targeted enemy officer's HP (current / max) next to the level.
+- `PlayerInfoLevel=1`: shows your level at the start of the PlayerInfo text.
+- `TargetLevel=1`: shows the targeted enemy officer's level under the gauge (position `TargetLevelX` / `TargetLevelY`).
+- `LevelAdd`: correction when the shown level is off by 1.
+- **Fix**: the enemy officer HP gauge at the top left stopped at max HP 1000 (when `TargetBarMaxHP` is not 1000). Fixed.
+
+## Other / fixes
+
+- `[Mod] RandomSeed=1`: the game's random numbers were the same sequence every launch, so Free Mode random officers etc. were always the same. Fixed.
+- `[Debug] DemoSeconds`: length of the demo play (the battle that starts when you wait at the title screen) in seconds (vanilla 60).
+- **Fix**: target lock by pressing guard twice sometimes suddenly stopped you from moving left / right and pulled you toward the opponent (like `FaceTarget=2`). Fixed.
+- **Fix**: after adding `SkipDeadTarget`, the game could crash while the AI was deciding on a stratagem. Fixed (272).
+
+## Known issues / not possible yet
+
+- **Only 150 bodies in total can be on the battlefield.** If escort sizes (`EnemyOfficerEscortSize` / `EnemyBaseEscortSize` / `EnemyRoamingEscortSize`) or base soldiers (`[Base] GarrisonSoldiers`, experimental) push past that, you get invisible, unkillable soldiers that exist only as map icons, the AI swings at nothing, and bases can't be captured. Keep these at 1 / 0.
+  - Some bases having about 21 soldiers and others 50 or more is how the vanilla game works.
+- Officers from an escort request fight soldiers and captains but sometimes not enemy officers. This also happens in the vanilla game.
+- Stratagem names / descriptions changed with `[Text]` show in the stratagem screens, but **the stratagem slot on the battlefield (card name and short description) does not change yet**.
+- `[StratagemAI] Use` (make the AI use stratagems it normally doesn't) is on hold. Stratagems like Impregnable Fortress, Rumor and Base Repair have other per-stratagem conditions that stop the AI from using them. The included ini leaves it empty.
+- `[Camera] TerrainCollision` had no effect. Keep it at `1`.
+- `[AI] AirEscape*` (breaking out with a recovery / aerial Musou when juggled in the air for a long time) is experimental.
+- Animals (tigers), siege weapons, etc. cannot be put on normal battlefields (the battlefield-only data is missing; they are invisible or crash).
+- Random weapons are limited to two.
+- `RequestOfficer` is experimental.
+- Extra maps may show a different name on the battle preparation screen.
+- Keep the `[Debug]` investigation keys (`WatchWrite` / `BaseOwnerProbe` / `StratagemAIProbe` / `SwitchProbe` / `SquadProbe` / `DemoProbe` / `BattleProbe` / `ExpProbe` / `ArmyProbe` / `DumpPersons` / `BaseProbe` / `GaugeProbe` / `BaseCrowdProbe`, etc.) at `0`.
+
+---
+
+# Changes in earlier builds — 2026-11-13 (163)
 
 Changes since the previous tester build **2026-11-09 (129)**. Older changes are listed further down under "Changes in earlier builds".
 

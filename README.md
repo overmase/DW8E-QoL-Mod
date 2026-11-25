@@ -73,6 +73,7 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[Mod]` UniqueModelBoxes | Raises how many edit / unique officers can show their own model at the same time (vanilla 6 → 14) |
 | `[Mod]` LoadTableGuard | Prevents the crash when the officer load table (90 entries) becomes full |
 | `[Mod]` CrashGuard… | Guards against crashes caused by bugs in the original game (including broken officer motion command data) |
+| `[Mod]` RandomSeed | Fixes the game's random numbers being the same sequence every launch (Free Mode random officers etc. were always the same) |
 
 ### Soldiers and escorts
 
@@ -81,6 +82,7 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[Mod]` AllyStrayZako / AllyEscort / EnemyEscort / EnemyLinkedZakoLevel | Turns allied stray soldiers and officers' escort squads on or off, and reduces the soldiers linked to enemy escorts |
 | `[Mod]` EnemyEscortRewrite / BaseEscortRewrite / RoamingEscortRewrite | Changes the unit type of enemy escort squads (normal officers / base captains / roaming captains) |
 | `[EnemyPower]` | Damage multiplier for enemy base captains, roaming captains and soldiers (officers are not affected) |
+| `[Mod]` EnemyOfficerEscortSize / EnemyBaseEscortSize / EnemyRoamingEscortSize | Multiplier for the number of regular escort soldiers of enemies (`EscortSizeLimit` caps the battlefield total). Only 150 bodies in total fit on the battlefield, so **raising these above 1 is not recommended** |
 
 ### Battle balance and stats
 
@@ -92,6 +94,10 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[Stratagem]` | Stratagem cooldown (player / allied AI / enemy), AI wait times, AI point gain, effect duration, area of ally stratagems, max value of the player's gauge |
 | `[StratagemOverride]` | Cooldown and duration multipliers for individual stratagems (the number and name of every stratagem are listed in the ini) |
 | `[WeaponAffinity]` | Attack bonus for each weapon affinity level (vanilla 2 / 5 / 7 / 10), optionally for the player only |
+| `[StratagemParam]` / `[StratagemInfo]` / `[StratagemShotParam]` | Directly edits stratagem definition values (effect type, duration, strength, cost, cooldown, AI use chance, units retreating from large-scale stratagems, whether allies are affected, etc.; advanced). The original values are written to `DW8E_StratagemParam_Default.txt` |
+| `[StratagemAI]` | Unlocks the unused stratagems "Bond" and "Focused Fire" (`Unlock`), number of bases taken by Base Raid / Base Seize (`BaseRaidCount` / `BaseSeizeCount`), number of officers summoned (`SummonCount`) |
+| `[Rescue]` | Getting near an allied officer with low HP heals them ("Rescued ○○") |
+| `[Chaos]` | Randomizes your two weapons from all types when a battle starts (`RandomWeapon`, strength via `RandomWeaponTier`) |
 
 ### AI and the battlefield
 
@@ -103,6 +109,13 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[OffscreenMarch]` | March speed of off-screen officers (allies / enemies), plus extra speed when returning to defend the main camp |
 | `[MainCamp]` | When enemy officers come near a main camp, that army's officers go back to defend it (allies / enemies). They can also ignore enemies on the way |
 | `[AutoBattle]` | **Auto battle.** F8 = on / F10 = off (a pad button combination also works). The AI marches, captures bases, defends the main camp, attacks, guards and uses Musou. You can take less damage while it is on |
+| `[AI]` Aggressive… / CloseIdle… / …GuardHoldMs / ReactGuard… / ReactAfter… | Aggressive AI that skips "wait and see", actions when pressed up close, guard release delay, guarding against attacks and what to do after |
+| `[AI]` AffinitySwitchAlly / AffinitySwitchEnemy / AISwitch | Allied / enemy officers also switch weapons by affinity (with a cooldown). Stop or replace the AI's switch attack (experimental) |
+| `[AITarget]` SkipDeadTarget / EscortNearRange | Don't keep targeting fallen opponents. Officers from an escort request target nearby enemy officers |
+| `[AutoBattle]` UseStratagem / AffinitySwitch / UnstuckAttack | Uses stratagems in auto battle, switches weapons with R1 by affinity, also attacks when stuck |
+| `[MainCamp]` OnlyWhenReachable | Don't go back to defend the main camp when the bases don't connect to it |
+| `[Situation]` | Redoes the start-of-battle base split by troop ratio (`TroopRatio`, e.g. heavy-disadvantage battles) |
+| `[Base]` / `[BaseUpgrade]` / `[BaseEffect]` | Random base types and levels, main / sub camp levels, base durability multiplier, base upgrade costs, attack / defense / supply base effect values |
 
 ### Controls and target lock
 
@@ -128,6 +141,9 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[AllyHP]` | Shows allied officers' names and HP at the left edge of the screen (F9 toggles it). Can also show your main camp durability on the first line (`ShowCamp`) |
 | `[Hud]` | Moves HUD parts (player gauge, order panel, K.O. count, map, battle situation bar, combo counter, target officer gauge, base durability box), and shows the remaining time of power-ups (items and stratagems) at the bottom of the screen (`BuffTime`). Shows Musou bars and HP numbers as text (`PlayerInfo`, F9). Lets your HP gauge and the enemy officer's HP gauge grow beyond 1000 max HP (`HpBar…` / `TargetBar…`) |
 | `[Camera]` | Camera distance and angle (FOV) for the normal and guard cameras |
+| `[Camera]` WallCollision | Turns off camera collision with walls and placed objects (the camera no longer gets stuck near walls) |
+| `[Hud]` TargetHP / TargetLevel / PlayerInfoLevel | Shows the targeted enemy officer's HP numbers and level, and your own level |
+| `[Text]` | Replaces game text by id (stratagem names, descriptions, etc.; the stratagem slot on the battlefield does not change yet) |
 | `[RawValue]` | Experimental values, for advanced users |
 
 ### Battlefield environment and graphics
@@ -153,12 +169,23 @@ Every feature can be turned on or off, or adjusted, in `version.ini`. The file h
 | `[Conquest]` FixSortieDamage | Fixes the official bug where attacking a damaged territory also reduced **your** sortie slots |
 | `[Conquest]` AllianceMonths / AllianceMonthsMax | Alliance length in months, fixed or random (e.g. 6–12) |
 | `[Conquest]` HideDamageForecast | Hides the territory "damage forecast" (for randomized territory damage) |
+| `[Conquest]` AllyGrowth / EnemyGrowth | Merit growth multiplier for other officers (your force / other forces and free officers) |
+| `[Conquest]` FatigueAdd / FatigueMul / FatigueStat / FatigueStat2 | Fatigue added after a battle, and stat % lowered by fatigue |
+| `[Conquest]` StageMap | Replaces the battlefield of a conquest region |
 | `[AutoSave]` | Quick-saves automatically when the month changes (also after returning from battle) and keeps timestamped backups in `Savedata\ModAutoSave`. `BlockSoftReset` blocks the soft reset (Space + Delete / Start + Select) in conquest mode or always |
 | `[ConquestParam]` | Direct access to the conquest parameter table (advanced) |
 
+### Free Mode
+
+| Section | What it does |
+|---|---|
+| `[FreeMode]` Random… | Whether unique / generic / edit officers are included in the random sortie officers |
+| `[FreeMode]` RequestOfficer | Replaces the fixed "brigade leader" of request battles with another officer (experimental) |
+| `[FreeMode]` ExtraStages / StageMap / StageName… | Adds the previous game's Xu Chang (escort) / Luoyang (assassination) maps etc. to the stage list, replaces region battlefields, list names |
+
 The included `version.ini` is the author's own play settings (many features are on). Set a value back to the vanilla value written in the comment to return that part to normal.
 
-**Not working yet:** `[Drop]` `WeaponDropChance`, `[Display]` `Width` / `Height`, everything in `[Debug]`, and `[EnemyPower]` `…Difficulty` / `…AiRow`. The ini also marks them with "These don't work now". Please leave them as they are.
+**Not working yet:** `[Drop]` `WeaponDropChance`, `[Display]` `Width` / `Height`, the investigation keys in `[Debug]` (except `DumpText` / `DemoSeconds` / `WatchResetKey`), `[StratagemAI]` `Use` (on hold), `[Camera]` `TerrainCollision`, and `[EnemyPower]` `…Difficulty` / `…AiRow`. The ini also marks them with "These don't work now". Please leave them as they are.
 
 ## Log files
 
